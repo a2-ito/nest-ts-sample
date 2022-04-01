@@ -1,0 +1,13 @@
+version: "3"
+services:
+  appdb:
+    image: bitnami/postgresql:14
+    container_name: "appdb"
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker/postgres/initdb:/docker-entrypoint-initdb.d
