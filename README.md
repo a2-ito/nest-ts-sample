@@ -21,37 +21,34 @@ make run-with-db
 ```
 
 ## Todo
-[x] int test を controller.spec にする
-  [x] findAll
-  [x] findById
-  [x] create
-  [x] update
-  [x] delete
-[x] repository ラッパを作成してメモリバージョンを作成する
-[x] linter
-[x] formatter
-[ ] memory
-  [x] findAll
-  [x] findById
-  [x] create
-  [ ] update
-  [ ] delete
-[ ] postgres
-  [ ] findAll
-  [ ] findById
-  [ ] create
-  [ ] update
-  [ ] delete
-[ ] unit test
-  [ ] findAll
-  [ ] findById
-  [ ] create
-  [ ] update
-  [ ] delete
-[ ] e2e test
-  [x] findAll
-  [x] findById
-  [x] create
-  [ ] update
-  [ ] delete
-
+- [x] int test を controller.spec にする
+  - [x] findAll
+  - [x] findById
+  - [x] create
+  - [x] update
+  - [x] delete
+- [x] repository ラッパを作成してメモリバージョンを作成する
+- [x] linter
+- [x] formatter
+- [x] memory
+  - [x] findAll
+  - [x] findById
+  - [x] create
+  - [x] update
+  - [x] delete
+- [x] postgres
+  - [x] findAll
+  - [x] findById
+  - [x] create
+  - [x] update
+  - [x] delete
+- [ ] unit test
+  - [ ] findAll
+  - [ ] findById
+  - [ ] create
+  - [ ] update
+  - [ ] delete
+- [x] e2e test - user.e2e-spec.ts
+- [ ] complete lint nad format
+- [ ] run on docker container
+- [ ] build with buildpacks

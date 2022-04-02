@@ -13,6 +13,7 @@ POSTGRES_DB		:= sample
 TIMEZONE			:= Asia/Tokyo
 REPOSITORY		:= memory
 PSQL_DB_PORT	:= 5432
+PSQL_DATABASE := sample
 REPOSITORY_TYPE := memory
 
 all: lint build int e2e
@@ -47,14 +48,29 @@ run: build
 
 run-with-db: REPOSITORY_TYPE := postgres
 run-with-db: build
-	echo ${REPOSITORY_TYPE}
+	echo "REPOSITORY_TYPE: "${REPOSITORY_TYPE}
+	echo "PSQL_DATABASE: "${PSQL_DATABASE}
 	nest start
+
+e2e-findById-with-db: REPOSITORY_TYPE := postgres
+e2e-findById-with-db:
+	npx jest --config test/e2e/jest-e2e.json test/e2e/findById.e2e-spec.ts
+
+e2e-with-db: REPOSITORY_TYPE := postgres
+e2e-with-db: PSQL_DATABASE := e2etest
+e2e-with-db:
+	echo "REPOSITORY_TYPE: "${REPOSITORY_TYPE}
+	npm run test:e2e
 
 run-db:
 	docker-compose up -d
 
 down-db:
 	docker-compose down
+
+restart-db:
+	docker-compose down
+	docker-compose up -d
 
 restart-mysql: down-mysql run-mysql
 

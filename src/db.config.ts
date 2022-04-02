@@ -9,7 +9,7 @@ export const dbConfig: TypeOrmModuleOptions = {
   port: 5432,
   username: 'testuser',
   password: 'p',
-  database: 'sample',
+  database: process.env.PSQL_DATABASE,
   entities: [UserEntity],
   synchronize: false,
 };

@@ -7,8 +7,10 @@
 
 -- ALTER DATABASE testdb set pgaudit.log='All';
 
+CREATE database e2etest;
+
 create table Users (
-    id SERIAL NOT NULL PRIMARY KEY,
+    id VARCHAR(36) NOT NULL PRIMARY KEY,
     name VARCHAR(32) NOT NULL,
     firstname VARCHAR(32) NOT NULL,
     lastname VARCHAR(32) NOT NULL,
@@ -18,9 +20,20 @@ create table Users (
 INSERT INTO Users
     (id, name, firstname, lastname, email)
 VALUES
-    (1, 'sample1', 'sample1_firstname', 'sample1_lastname', 'sample1@example.com');
+    ('6a414c88-4613-486d-9990-80c1de52eea4', 'sample1', 'sample1_firstname', 'sample1_lastname', 'hoge@gmail.com');
+
+\c e2etest
+
+create table Users (
+    id VARCHAR(36) NOT NULL PRIMARY KEY,
+    name VARCHAR(32) NOT NULL,
+    firstname VARCHAR(32) NOT NULL,
+    lastname VARCHAR(32) NOT NULL,
+    email VARCHAR(50) NOT NULL
+);
+
 INSERT INTO Users
     (id, name, firstname, lastname, email)
 VALUES
-    (2, 'sample2', 'sample2_firstname', 'sample2_lastname', 'sample2@example.com');
+    ('6a414c88-4613-486d-9990-80c1de52eea4', 'sample1', 'sample1_firstname', 'sample1_lastname', 'hoge@gmail.com');
 

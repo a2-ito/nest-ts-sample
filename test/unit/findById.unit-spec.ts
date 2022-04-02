@@ -1,14 +1,24 @@
+import { UserInMemoryRepository } from "../../src/users/repository/memory/user.repository";
 import { UsersService } from '../../src/users/users.service';
 import { User } from '../../src/users/interfaces/user.interface';
 
 const findByIdExpect = require('./findByIdExpect.json');
 
-describe('auth', ()=> {
-  const u = new UserRepository;
+describe('unit - findById service', ()=> {
+  const u = new UserInMemoryRepository;
   beforeAll(async ()=> {
-    const user = new User(1, "sample1", "sample1_firstname", "sample1_lastname", "sample1@example .com");
+    const users = [
+      {
+        id: '6a414c88-4613-486d-9990-80c1de52eea4',
+        name: 'sample1',
+        firstname: 'sample1_firstname',
+        lastname: 'sample1_lastname',
+        email: 'hoge@gmail.com',
+      },
+    ];
+    //DB.users = users;
     const mockTextExec = jest.spyOn(u, 'findById').mockImplementation((param)=> {
-      return Promise.resolve(user);
+      return Promise.resolve(users);
     });
   });
 

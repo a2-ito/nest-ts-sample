@@ -5,6 +5,7 @@ import { User } from '../../interfaces/user.interface';
 import { UserEntity } from '../../entities/user.entity';
 import { IUserRepository } from "../interface/i-user.repository";
 import { CreateUserDto } from '../../dto/create-user.dto';
+//import { updateUserDto } from '../../dto/update-user.dto';
 
 @Injectable()
 export class UserTypeormRepository implements IUserRepository {
@@ -25,6 +26,15 @@ export class UserTypeormRepository implements IUserRepository {
 
   async createOne(user: User): Promise<void> {
     await this.userTypeormEntityRepository.insert(user);
+  }
+
+  async updateOne(id: string, user: User): Promise<User> {
+    const result = await this.userTypeormEntityRepository.update(id, user);
+    return user;
+  }
+
+  async deleteOne(id: string): Promise<void> {
+    await this.userTypeormEntityRepository.delete(id);
   }
 
 }

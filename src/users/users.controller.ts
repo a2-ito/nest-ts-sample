@@ -30,10 +30,9 @@ export class UsersController {
     return this.userSerializer.user(result)
   }
 
-    /*
   @Patch(':id')
-  async update(@Body() updateUserDto: UpdateUserDto) {
-    let result = await this.usersService.update(updateUserDto);
+  async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+    let result = await this.usersService.update(id, updateUserDto);
     console.log(result);
     return this.userSerializer.user(result);
   }
@@ -43,6 +42,5 @@ export class UsersController {
     this.usersService.remove(id);
     return this.userSerializer.delete();
   }
-     */
 
 }

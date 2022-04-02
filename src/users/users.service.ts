@@ -37,15 +37,14 @@ export class UsersService {
     return entity;
   }
 
-    /*
-  async update(dto: UpdateUserDto): Promise<User> {
+  async update(id: string, dto: UpdateUserDto): Promise<User> {
     const entity = dto as UserEntity;
-    await this.userRepository.updateOne(entity);
+    console.log(entity.name);
+    await this.userRepository.updateOne(id, entity);
     return entity;
   }
 
   async remove(id: string): Promise<void> {
     await this.userRepository.deleteOne(id);
   }
-     */
 }
